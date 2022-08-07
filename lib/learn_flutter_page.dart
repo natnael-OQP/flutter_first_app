@@ -24,6 +24,16 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              debugPrint("info");
+            },
+            icon: const Icon(
+              Icons.info_outlined,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
