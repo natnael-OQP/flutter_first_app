@@ -8,25 +8,29 @@ class LearnFlutterPage extends StatefulWidget {
 }
 
 class _LearnFlutterPageState extends State<LearnFlutterPage> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text("Learn Flutter"),
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(Icons.arrow_back_ios),
-          )
-          // titleTextStyle: FontWeight.w200,
-          ),
+        title: const Text("Learn Flutter"),
+        automaticallyImplyLeading: false,
+
+        /// custom leading style
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+      ),
       body: Column(
         children: [
           Image.asset('images/profile.jpeg'),
           const SizedBox(height: 10),
           const Divider(color: Colors.black45),
+          // list
           Container(
             margin: const EdgeInsets.all(8.0),
             padding: const EdgeInsets.all(8.0),
@@ -43,6 +47,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               ),
             ),
           ),
+          // list
           Row(
             children: [
               Expanded(
@@ -57,10 +62,11 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               Expanded(
                 flex: 1,
                 child: OutlinedButton(
-                    onPressed: () {}, child: const Text("outlined")),
+                    onPressed: () {}, child: const Text("Outlined")),
               ),
             ],
           ),
+          // list
           GestureDetector(
             onTap: () {
               debugPrint("gestureDetector");
@@ -78,7 +84,16 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
                 ),
               ],
             ),
-          )
+          ),
+          // list
+          Switch(
+              value: isChecked,
+              onChanged: (bool newBool) {
+                setState(() {
+                  isChecked = newBool;
+                });
+              })
+          
         ],
       ),
     );
