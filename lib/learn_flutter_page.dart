@@ -25,76 +25,80 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Column(
-        children: [
-          Image.asset('images/profile.jpeg'),
-          const SizedBox(height: 10),
-          const Divider(color: Colors.black45),
-          // list
-          Container(
-            margin: const EdgeInsets.all(8.0),
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.black12,
-            width: double.infinity,
-            child: const Center(
-              child: Text(
-                "stay focus",
-                style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset('images/profile.jpeg'),
+            const SizedBox(height: 10),
+            const Divider(color: Colors.black45),
+            // list
+            Container(
+              margin: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.black12,
+              width: double.infinity,
+              child: const Center(
+                child: Text(
+                  "stay focus",
+                  style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
-          ),
-          // list
-          Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: ElevatedButton(
-                    onPressed: () {}, child: const Text("Elevate")),
-              ),
-              Expanded(
-                flex: 1,
-                child: TextButton(onPressed: () {}, child: const Text("Text")),
-              ),
-              Expanded(
-                flex: 1,
-                child: OutlinedButton(
-                    onPressed: () {}, child: const Text("Outlined")),
-              ),
-            ],
-          ),
-          // list
-          GestureDetector(
-            onTap: () {
-              debugPrint("gestureDetector");
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Icon(
-                  Icons.favorite,
-                  color: Colors.pink,
+            // list
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text("Elevate")),
                 ),
-                Icon(
-                  Icons.headphones,
-                  color: Colors.green,
+                Expanded(
+                  flex: 1,
+                  child:
+                      TextButton(onPressed: () {}, child: const Text("Text")),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: OutlinedButton(
+                      onPressed: () {}, child: const Text("Outlined")),
                 ),
               ],
             ),
-          ),
-          // list
-          Switch(
-              value: isChecked,
-              onChanged: (bool newBool) {
-                setState(() {
-                  isChecked = newBool;
-                });
-              })
-          
-        ],
+            // list
+            GestureDetector(
+              onTap: () {
+                debugPrint("gestureDetector");
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.pink,
+                  ),
+                  Icon(
+                    Icons.headphones,
+                    color: Colors.green,
+                  ),
+                ],
+              ),
+            ),
+            // list
+            Switch(
+                value: isChecked,
+                onChanged: (bool newBool) {
+                  setState(() {
+                    isChecked = newBool;
+                  });
+                }),
+            Image.network(
+                'https://images6.alphacoders.com/951/thumb-1920-951579.jpg'),
+          ],
+        ),
       ),
     );
   }
