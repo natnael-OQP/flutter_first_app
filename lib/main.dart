@@ -1,3 +1,4 @@
+import 'package:first_app/profile_page.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
@@ -26,30 +27,36 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+  List<Widget> pages = [
+    const HomePage(),
+    const ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const HomePage(),
+      body: pages[currentPage],
       appBar: AppBar(
         title: const Text("Home"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
-          debugPrint("take nathan")
+          debugPrint("take nathan"),
         },
         backgroundColor: Colors.blue[500],
         child: const Icon(Icons.add_a_photo_outlined),
       ),
-      bottomNavigationBar: NavigationBar(destinations: const [
-        NavigationDestination(icon: Icon(Icons.home_filled), label: "Home"),
-        NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-      ],
-      onDestinationSelected: (i){
-        setState(() {
-          currentPage=i;
-        });
-      },
-      selectedIndex: currentPage,
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home_filled), label: "Home"),
+          NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+        ],
+        onDestinationSelected: (int i) {
+          setState(() {
+            currentPage = i;
+          });
+        },
+        selectedIndex: currentPage,
       ),
     );
   }
